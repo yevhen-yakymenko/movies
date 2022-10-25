@@ -1,0 +1,32 @@
+[
+  {
+    "name": "trandingDay",
+    "title": "Tranding today",
+    "ref": "day",
+    "btnName": "Today"
+  },
+  {
+    "name": "trandingWeek",
+    "title": "Tranding this Week",
+    "ref": "week",
+    "btnName": "This Week"
+  },
+  {
+    "name": "popular",
+    "title": "Most popular",
+    "ref": "popular",
+    "btnName": "Most popular"
+  },
+  {
+    "name": "topRated",
+    "title": "Top rated",
+    "ref": "top_rated",
+    "btnName": "Top rated"
+  },
+  {
+    "name": "upcoming",
+    "title": "Upcoming",
+    "ref": "upcoming",
+    "btnName": "Upcoming"
+  }
+]

@@ -1,10 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { App } from 'components/App';
-import './index.css';
+// import { StrictMode } from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import { createRoot } from 'react-dom/client';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+import App from 'App';
+
+const mainContainer = document.getElementById('root');
+const mainRoot = createRoot(mainContainer);
+
+mainRoot.render(
+  // <StrictMode>
+  <BrowserRouter basename="/movies">
     <App />
-  </React.StrictMode>
+  </BrowserRouter>
+
+  // </StrictMode>
 );
