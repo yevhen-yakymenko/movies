@@ -34,7 +34,21 @@ export const getMovies = async (ref, page) => {
   return moviesData.data;
 };
 
-// const getMovieById
+export const getMovieById = async movie_id => {
+  const movieData = await axios({
+    url: `/movie/${movie_id}?api_key=${apiKey}`,
+  });
+
+  return movieData.data;
+};
+
+export const getGenres = async () => {
+  const genresData = await axios({
+    url: `/genre/movie/list?api_key=${apiKey}`,
+  });
+
+  return genresData;
+};
 
 // export const searchMovie = async (query, page) => {
 //   const moviesData = await axios({
@@ -46,11 +60,8 @@ export const getMovies = async (ref, page) => {
 //   return moviesData;
 // };
 
-export const getMoviePoster = posterPath =>
-  `https://image.tmdb.org/t/p/original${posterPath}`;
+export const getImg = imgPath =>
+  `https://image.tmdb.org/t/p/original${imgPath}`;
 
-// /movie/${movie_id}?api_key=${apiKey}&language=en-US - movie Details
 // /movie/${movie_id}/credits?api_key=${apiKey}&language=en-US - movie Credits
-// /movie/${movie_id}/reviews?api_key=${apiKey}&&page=${page} - movie Reviews
-
-// /search/movie?api_key=${apiKey}&language=en-US&page=${page}&include_adult=false
+// /movie/${movie_id}/reviews?api_key=${apiKey}&page=${page} - movie Reviews

@@ -3,6 +3,7 @@ import { Route, Routes, Navigate } from 'react-router-dom';
 import AppBar from 'components/AppBar';
 import HomePage from 'pages/HomePage';
 import SearchPage from 'pages/SearchPage';
+import MovieDetails from 'pages/MovieDetails';
 import { GlobalStyle } from 'components/GlobalStyle';
 
 import moviesRefs from 'data/moviesRefs.json';
@@ -21,7 +22,7 @@ const App = () => {
             />
           ))}
           <Route path="movies" element={<SearchPage />} />
-          <Route path="movies/:movieId" element={<div>123</div>}>
+          <Route path="movies/:movieId" element={<MovieDetails />}>
             <Route path="cast" element={<div>123</div>} />
             <Route path="reviews" element={<div>123</div>} />
           </Route>

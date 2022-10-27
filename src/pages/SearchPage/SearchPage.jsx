@@ -52,9 +52,11 @@ const SearchPage = () => {
   let onLastPage = totalPages - page;
 
   return (
-    <MoviesBox movies={movies} hideBtn={onLastPage} loadMore={onLoadMore}>
-      <SearchBox onSubmit={onSearchMovie} />
-    </MoviesBox>
+    <>
+      <MoviesBox movies={movies} hideBtn={onLastPage} loadMore={onLoadMore}>
+        <SearchBox onSubmit={onSearchMovie} />
+      </MoviesBox>
+    </>
   );
 };
 
