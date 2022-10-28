@@ -4,6 +4,8 @@ import AppBar from 'components/AppBar';
 import HomePage from 'pages/HomePage';
 import SearchPage from 'pages/SearchPage';
 import MovieDetails from 'pages/MovieDetails';
+import MovieCast from 'components/MovieCast';
+import MovieReviews from 'components/MovieReviews';
 import { GlobalStyle } from 'components/GlobalStyle';
 
 import moviesRefs from 'data/moviesRefs.json';
@@ -23,8 +25,9 @@ const App = () => {
           ))}
           <Route path="movies" element={<SearchPage />} />
           <Route path="movies/:movieId" element={<MovieDetails />}>
-            <Route path="cast" element={<div>123</div>} />
-            <Route path="reviews" element={<div>123</div>} />
+            {/* <Route index element={<Navigate to="cast" />} /> */}
+            <Route path="cast" element={<MovieCast />} />
+            <Route path="reviews" element={<MovieReviews />} />
           </Route>
 
           <Route path="*" element={<div>Not Found</div>} />
