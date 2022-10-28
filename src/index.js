@@ -9,7 +9,7 @@ const mainRoot = createRoot(mainContainer);
 
 mainRoot.render(
   // <StrictMode>
-  <BrowserRouter basename="/moviesSPA">
+  <BrowserRouter basename="/movies">
     <App />
   </BrowserRouter>
 
