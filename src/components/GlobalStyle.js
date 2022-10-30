@@ -9,16 +9,9 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     margin: 0 auto;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-      sans-serif;
+    font-family: 'Roboto', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-  }
-
-  code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-      monospace;
   }
   
   h1,h2,h3,h4,h5,h6,p {
@@ -31,7 +24,7 @@ export const GlobalStyle = createGlobalStyle`
     list-style: none;
   }
 
-  img {
+  img {@import url(https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic);
     display: block;
     max-width: 100%;
     height: auto;

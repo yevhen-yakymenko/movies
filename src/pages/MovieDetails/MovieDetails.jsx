@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { NavLink, Outlet, useParams, useLocation } from 'react-router-dom';
 
 import Box from 'components/Box';
@@ -66,7 +66,9 @@ const MovieDetails = () => {
           </Box>
         </Box>
       </Box>
-      <Outlet />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Outlet />
+      </Suspense>
     </>
   );
 };

@@ -29,7 +29,6 @@ export const getMovies = async (ref, page) => {
       });
       break;
   }
-  console.log(movies);
 
   return movies.data;
 };
@@ -39,8 +38,6 @@ export const getMovieById = async movieId => {
     url: `/movie/${movieId}?api_key=${apiKey}`,
   });
 
-  console.log(movie.data);
-
   return movie.data;
 };
 
@@ -49,8 +46,6 @@ export const getCast = async movieId => {
     url: `/movie/${movieId}/credits?api_key=${apiKey}`,
   });
 
-  console.log(castData);
-
   return castData.data.cast;
 };
 
@@ -58,8 +53,6 @@ export const getReviews = async (movieId, page = 1) => {
   const reviews = await axios({
     url: `/movie/${movieId}/reviews?api_key=${apiKey}&page=${page}`,
   });
-
-  console.log(reviews);
 
   return reviews.data;
 };

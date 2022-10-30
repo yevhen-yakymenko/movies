@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 
 import ControlBar from 'components/ControlBar';
@@ -18,7 +19,9 @@ const AppBar = () => {
         </form>
       </MainHeader>
       <ControlBar />
-      <Outlet />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Outlet />
+      </Suspense>
     </>
   );
 };

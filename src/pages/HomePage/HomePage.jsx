@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { Outlet } from 'react-router-dom';
 
 import MoviesBox from 'components/MoviesBox';
 
@@ -40,14 +39,11 @@ const HomePage = ({ pageTitle, movieRef }) => {
   let onLastPage = totalPages - page;
 
   return (
-    <>
-      <main>
-        <MoviesBox movies={movies} hideBtn={onLastPage} loadMore={onLoadMore}>
-          <h1>{pageTitle}</h1>
-        </MoviesBox>
-      </main>
-      <Outlet />
-    </>
+    <main>
+      <MoviesBox movies={movies} hideBtn={onLastPage} loadMore={onLoadMore}>
+        <h1>{pageTitle}</h1>
+      </MoviesBox>
+    </main>
   );
 };
 

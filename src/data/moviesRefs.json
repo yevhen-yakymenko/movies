@@ -1,12 +1,12 @@
 [
   {
-    "name": "trandingDay",
+    "name": "tranding-day",
     "title": "Tranding today",
     "ref": "day",
     "btnName": "Today"
   },
   {
-    "name": "trandingWeek",
+    "name": "tranding-week",
     "title": "Tranding this Week",
     "ref": "week",
     "btnName": "This Week"
@@ -18,7 +18,7 @@
     "btnName": "Most popular"
   },
   {
-    "name": "topRated",
+    "name": "top-rated",
     "title": "Top rated",
     "ref": "top_rated",
     "btnName": "Top rated"

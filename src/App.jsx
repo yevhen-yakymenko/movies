@@ -1,21 +1,24 @@
+import { lazy } from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
 
 import AppBar from 'components/AppBar';
-import HomePage from 'pages/HomePage';
-import SearchPage from 'pages/SearchPage';
-import MovieDetails from 'pages/MovieDetails';
-import MovieCast from 'components/MovieCast';
-import MovieReviews from 'components/MovieReviews';
+
 import { GlobalStyle } from 'components/GlobalStyle';
 
 import moviesRefs from 'data/moviesRefs.json';
+
+const HomePage = lazy(() => import('./pages/HomePage'));
+const SearchPage = lazy(() => import('./pages/SearchPage'));
+const MovieDetails = lazy(() => import('./pages/MovieDetails'));
+const MovieCast = lazy(() => import('./components/MovieCast'));
+const MovieReviews = lazy(() => import('./components/MovieReviews'));
 
 const App = () => {
   return (
     <>
       <Routes>
         <Route path="/" element={<AppBar />}>
-          <Route index element={<Navigate to="trandingDay" />} />
+          <Route index element={<Navigate to="tranding-day" />} />
           {moviesRefs.map(({ name, title, ref }) => (
             <Route
               key={name}
@@ -25,7 +28,6 @@ const App = () => {
           ))}
           <Route path="movies" element={<SearchPage />} />
           <Route path="movies/:movieId" element={<MovieDetails />}>
-            {/* <Route index element={<Navigate to="cast" />} /> */}
             <Route path="cast" element={<MovieCast />} />
             <Route path="reviews" element={<MovieReviews />} />
           </Route>
