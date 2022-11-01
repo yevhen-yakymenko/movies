@@ -47,13 +47,7 @@ const MoviesBox = ({ movieRef, children }) => {
     <MoviesContainer>
       {children}
 
-      <MoviesList movies={movies} />
-
-      {movies.length > 0 && onLastPage > 0 && (
-        <button type="button" onClick={() => onLoadMore()}>
-          Load more
-        </button>
-      )}
+      <MoviesList movies={movies} lastPage={onLastPage} loadMore={onLoadMore} />
     </MoviesContainer>
   );
 };
