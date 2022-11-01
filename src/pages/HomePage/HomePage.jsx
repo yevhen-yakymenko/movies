@@ -1,49 +1,17 @@
-import { useState, useEffect } from 'react';
-
+import ControlsBar from 'components/ControlsBar';
 import MoviesBox from 'components/MoviesBox';
+import Box from 'components/Box';
 
-import { getMovies } from 'services/moviesApi';
+import { PageTitle } from './HomePage.styled';
 
-const HomePage = ({ pageTitle, movieRef }) => {
-  const [movies, setMovies] = useState([]);
-  const [ref, setRef] = useState('');
-  const [page, setPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(null);
-
-  useEffect(() => {
-    const searchMovies = async () => {
-      try {
-        const { results, total_pages } = await getMovies(ref, page);
-        setMovies(prevMovies => [...prevMovies, ...results]);
-        setTotalPages(total_pages);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    if (ref !== movieRef) {
-      setMovies([]);
-      setRef(movieRef);
-      setPage(1);
-      return;
-    }
-
-    searchMovies();
-  }, [movieRef, page, ref]);
-
-  const onLoadMore = hideBtn => {
-    setPage(prevPage => prevPage + 1);
-    console.log(hideBtn);
-  };
-
-  let onLastPage = totalPages - page;
-
+const HomePage = ({ title, movieRef }) => {
   return (
-    <main>
-      <MoviesBox movies={movies} hideBtn={onLastPage} loadMore={onLoadMore}>
-        <h1>{pageTitle}</h1>
+    <Box as="main" display="flex" height="100vh" pt="64px">
+      <ControlsBar />
+      <MoviesBox movieRef={movieRef}>
+        <PageTitle>{title}</PageTitle>
       </MoviesBox>
-    </main>
+    </Box>
   );
 };
 

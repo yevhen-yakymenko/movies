@@ -1,27 +1,29 @@
-import { Suspense } from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
-
-import ControlBar from 'components/ControlBar';
-
-import { MainHeader, NavigationList } from './AppBar.styled';
+import {
+  MainHeader,
+  LogoContainer,
+  LogoLink,
+  LogoIcon,
+  NavigationList,
+  StyledLink,
+} from './AppBar.styled';
 
 const AppBar = () => {
   return (
     <>
       <MainHeader>
+        <LogoContainer>
+          <LogoIcon size="32px" color="white" />
+          <LogoLink to="/">movieSPA</LogoLink>
+        </LogoContainer>
         <NavigationList>
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="movies">Movies</NavLink>
+          <StyledLink to="/">Home</StyledLink>
+          <StyledLink to="movies">Movies</StyledLink>
         </NavigationList>
         <form>
           <input />
           <button type="submit">Search</button>
         </form>
       </MainHeader>
-      <ControlBar />
-      <Suspense fallback={<div>Loading...</div>}>
-        <Outlet />
-      </Suspense>
     </>
   );
 };

@@ -1,8 +1,9 @@
 import { lazy } from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
 
-import AppBar from 'components/AppBar';
+import Layout from 'components/Layout';
 
+// import MoviesBox from 'components/MoviesBox';
 import { GlobalStyle } from 'components/GlobalStyle';
 
 import moviesRefs from 'data/moviesRefs.json';
@@ -17,15 +18,17 @@ const App = () => {
   return (
     <>
       <Routes>
-        <Route path="/" element={<AppBar />}>
+        <Route path="/" element={<Layout />}>
           <Route index element={<Navigate to="tranding-day" />} />
+
           {moviesRefs.map(({ name, title, ref }) => (
             <Route
               key={name}
               path={name}
-              element={<HomePage pageTitle={title} movieRef={ref} />}
+              element={<HomePage title={title} movieRef={ref} />}
             />
           ))}
+
           <Route path="movies" element={<SearchPage />} />
           <Route path="movies/:movieId" element={<MovieDetails />}>
             <Route path="cast" element={<MovieCast />} />

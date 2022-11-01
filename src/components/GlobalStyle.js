@@ -9,9 +9,15 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     margin: 0 auto;
-    font-family: 'Roboto', sans-serif;
+    font-family: ${p => p.theme.fonts.body};
+    background-color: ${p => p.theme.colors.black};
+    font-weight: ${p => p.theme.fontWeights.body};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  a{
+    text-decoration: none;
   }
   
   h1,h2,h3,h4,h5,h6,p {
@@ -24,13 +30,12 @@ export const GlobalStyle = createGlobalStyle`
     list-style: none;
   }
 
-  img {@import url(https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic);
+  img {
     display: block;
     max-width: 100%;
     height: auto;
 }
   #root {
     margin: 0 auto;
-    width: 1280px;
   }
 `;

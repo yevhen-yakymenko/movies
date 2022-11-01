@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import { SearchForm } from './SearchBox.styled';
+
 const SearchBox = ({ onSubmit }) => {
   const [value, setValue] = useState('');
 
@@ -17,10 +19,10 @@ const SearchBox = ({ onSubmit }) => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <SearchForm onSubmit={handleSubmit}>
         <input onChange={handleChange} name="search" required />
         <button type="submit">Search</button>
-      </form>
+      </SearchForm>
     </>
   );
 };
