@@ -62,7 +62,7 @@ export const getGenres = async () => {
     url: `/genre/movie/list?api_key=${apiKey}`,
   });
 
-  return genres;
+  return genres.data;
 };
 
 export const getImg = imgPath =>

@@ -4,13 +4,14 @@ import MoviesList from 'components/MoviesList';
 // import Box from 'components/Box';
 import { MoviesContainer } from './MoviesBox.styled';
 
-import { getMovies } from 'services/moviesApi';
+import { getMovies, getGenres } from 'services/moviesApi';
 
 const MoviesBox = ({ movieRef, children }) => {
   const [movies, setMovies] = useState([]);
   const [ref, setRef] = useState('');
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(null);
+  const [genres, setGenres] = useState([]);
 
   useEffect(() => {
     const searchMovies = async () => {
@@ -18,6 +19,8 @@ const MoviesBox = ({ movieRef, children }) => {
         const { results, total_pages } = await getMovies(ref, page);
         setMovies(prevMovies => [...prevMovies, ...results]);
         setTotalPages(total_pages);
+        const { genres } = await getGenres();
+        setGenres(genres);
       } catch (error) {
         console.log(error);
       }
@@ -47,7 +50,12 @@ const MoviesBox = ({ movieRef, children }) => {
     <MoviesContainer>
       {children}
 
-      <MoviesList movies={movies} lastPage={onLastPage} loadMore={onLoadMore} />
+      <MoviesList
+        movies={movies}
+        genres={genres}
+        lastPage={onLastPage}
+        loadMore={onLoadMore}
+      />
     </MoviesContainer>
   );
 };
