@@ -14,6 +14,7 @@ export const GlobalStyle = createGlobalStyle`
     font-weight: ${p => p.theme.fontWeights.body};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    color: ${p => p.theme.colors.text};
   }
 
   a{

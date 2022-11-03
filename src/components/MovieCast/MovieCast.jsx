@@ -22,8 +22,6 @@ const MovieCast = () => {
     return null;
   }
 
-  console.log(cast);
-
   return (
     <section>
       <h1>Starring</h1>

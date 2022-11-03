@@ -16,7 +16,7 @@ export const StyledLink = styled(NavLink)`
   align-items: center;
   justify-content: space-between;
   padding: 16px 8px 16px 40px;
-  color: ${p => p.theme.colors.white};
+  color: ${p => p.theme.colors.text};
 
   &.active {
     background-color: ${p => p.theme.colors.background};

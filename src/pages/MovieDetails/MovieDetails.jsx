@@ -3,6 +3,13 @@ import { NavLink, Outlet, useParams, useLocation } from 'react-router-dom';
 
 import Box from 'components/Box';
 
+import {
+  MovieContainer,
+  GoBackLink,
+  IconBack,
+  MovieInfo,
+} from './MovieDetails.styled';
+
 import { getMovieById, getImg } from 'services/moviesApi';
 
 const MovieDetails = () => {
@@ -33,14 +40,17 @@ const MovieDetails = () => {
     runtime,
   } = movie;
 
-  console.log(movie);
   const backLinkHref = location.state?.from ?? '/';
+  const MovieGenres = genres.map(({ name }) => name).join(', ');
+  const MovieScore = Math.round((vote_average / 10) * 100);
 
   return (
-    <>
-      <Box as="section">
-        <NavLink to={backLinkHref}>Go back</NavLink>
-        <Box display="flex" justifyContent="space-between">
+    <MovieContainer>
+      <Box mt="32px">
+        <GoBackLink to={backLinkHref}>
+          <IconBack size="24px" /> Go back
+        </GoBackLink>
+        <MovieInfo>
           <Box width="320px">
             <img src={getImg(poster_path)} alt={title} />
           </Box>
@@ -49,14 +59,10 @@ const MovieDetails = () => {
             <h2>
               {title} ({release_date})
             </h2>
-            <Box as="p" display="flex">
-              {genres.map(genre => (
-                <span key={genre.id}>{genre.name}</span>
-              ))}
-            </Box>
-            <p>{runtime}</p>
-            <p>User score: {Math.round((vote_average / 10) * 100)}%</p>
-            <h3>{tagline}</h3>
+            <p>{MovieGenres}</p>
+            <p>{runtime} min</p>
+            <p>User score: {MovieScore}%</p>
+            <h4>{tagline}</h4>
             <h3>Overview</h3>
             <p>{overview}</p>
             <div>
@@ -64,12 +70,12 @@ const MovieDetails = () => {
               <NavLink to="reviews">Reviews</NavLink>
             </div>
           </Box>
-        </Box>
+        </MovieInfo>
       </Box>
       <Suspense fallback={<div>Loading...</div>}>
         <Outlet />
       </Suspense>
-    </>
+    </MovieContainer>
   );
 };
 

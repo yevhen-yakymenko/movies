@@ -1,6 +1,11 @@
 import { useState } from 'react';
 
-import { SearchForm } from './SearchBox.styled';
+import {
+  SearchForm,
+  SearchInput,
+  SeacrhButton,
+  SearchIcon,
+} from './SearchBox.styled';
 
 const SearchBox = ({ onSubmit }) => {
   const [value, setValue] = useState('');
@@ -18,22 +23,18 @@ const SearchBox = ({ onSubmit }) => {
   };
 
   return (
-    <>
-      <SearchForm onSubmit={handleSubmit}>
-        <input onChange={handleChange} name="search" required />
-        <button type="submit">Search</button>
-      </SearchForm>
-    </>
+    <SearchForm onSubmit={handleSubmit}>
+      <SearchInput
+        type="text"
+        name="search"
+        placeholder="Find a movies..."
+        autofocus
+        required
+        onChange={handleChange}
+      />
+      <SeacrhButton type="submit">{<SearchIcon size="24px" />}</SeacrhButton>
+    </SearchForm>
   );
 };
 
 export default SearchBox;
-
-// export const SearchBoxMain = () => {
-//   return (
-//     <form>
-//       <input />
-//       <button type="submit">Search</button>
-//     </form>
-//   );
-// };

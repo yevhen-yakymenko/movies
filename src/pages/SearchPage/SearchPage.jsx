@@ -4,6 +4,8 @@ import Box from 'components/Box';
 import MoviesBox from 'components/MoviesBox';
 import SearchBox from 'components/SearchBox';
 
+import { NavigationBox } from './SearchPage.styled';
+
 const SearchPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -14,7 +16,8 @@ const SearchPage = () => {
   const serchRequets = searchParams.get('request');
 
   return (
-    <Box as="main" display="flex" height="100vh" minWidth="1280px">
+    <Box as="main" display="flex" height="100vh" pt="64px">
+      <NavigationBox />
       <MoviesBox movieRef={serchRequets}>
         <SearchBox onSubmit={onSearchMovie} />
       </MoviesBox>

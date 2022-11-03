@@ -3,6 +3,7 @@ import {
   LogoContainer,
   LogoLink,
   LogoIcon,
+  NavigationContainer,
   NavigationList,
   StyledLink,
 } from './AppBar.styled';
@@ -15,14 +16,16 @@ const AppBar = () => {
           <LogoIcon size="32px" color="white" />
           <LogoLink to="/">movieSPA</LogoLink>
         </LogoContainer>
-        <NavigationList>
-          <StyledLink to="/">Home</StyledLink>
-          <StyledLink to="movies">Movies</StyledLink>
-        </NavigationList>
-        <form>
-          <input />
-          <button type="submit">Search</button>
-        </form>
+        <NavigationContainer>
+          <NavigationList>
+            <StyledLink to="/">Home</StyledLink>
+            <StyledLink to="movies">Movies</StyledLink>
+          </NavigationList>
+          {/* <form>
+            <input />
+            <button type="submit">Search</button>
+          </form> */}
+        </NavigationContainer>
       </MainHeader>
     </>
   );

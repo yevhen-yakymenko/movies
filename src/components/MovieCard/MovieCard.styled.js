@@ -6,9 +6,8 @@ export const MovieItem = styled.li`
   display: flex;
   flex-direction: column;
   gap: 8px;
-  /* background-color: ${p => p.theme.colors.muted}; */
 
-  color: ${p => p.theme.colors.white};
+  color: ${p => p.theme.colors.text};
 
   :hover {
     color: ${p => p.theme.colors.accent};
