@@ -2,9 +2,14 @@ import { useLocation } from 'react-router-dom';
 
 import { getImg } from 'services/moviesApi';
 
-import { MovieItem, StyledLink, CardTitle, CardText } from './MovieCard.styled';
+import {
+  MovieItem,
+  StyledLink,
+  CardTitle,
+  CardText,
+} from './MoviesCard.styled';
 
-const MovieCard = ({ movie, genres }) => {
+const MoviesCard = ({ movie, genres }) => {
   const location = useLocation();
 
   const { id, title, release_date, poster_path, genre_ids } = movie;
@@ -25,4 +30,4 @@ const MovieCard = ({ movie, genres }) => {
   );
 };
 
-export default MovieCard;
+export default MoviesCard;

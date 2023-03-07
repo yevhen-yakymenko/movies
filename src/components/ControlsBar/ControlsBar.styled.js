@@ -2,13 +2,23 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { HiOutlineArrowNarrowRight } from 'react-icons/hi';
 
+export const Aside = styled.aside`
+  position: sticky;
+  top: 0;
+  padding-top: 7.5rem;
+  padding-bottom: 1.5rem;
+  height: 100vh;
+  display: block;
+
+  background-color: ${p => p.theme.colors.muted};
+`;
+
 export const Controls = styled.nav`
-  flex-basis: 240px;
-  min-width: 240px;
-  padding-top: 48px;
+  width: ${p => p.theme.sizes.aside};
+
+  height: 100%;
   display: flex;
   flex-direction: column;
-  background-color: ${p => p.theme.colors.muted};
 `;
 
 export const StyledLink = styled(NavLink)`
@@ -17,6 +27,9 @@ export const StyledLink = styled(NavLink)`
   justify-content: space-between;
   padding: 16px 8px 16px 40px;
   color: ${p => p.theme.colors.text};
+
+  transition: color ${p => p.theme.transitions.main},
+    background-color ${p => p.theme.transitions.main};
 
   &.active {
     background-color: ${p => p.theme.colors.background};

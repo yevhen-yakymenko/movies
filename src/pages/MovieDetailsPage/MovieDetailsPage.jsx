@@ -8,11 +8,11 @@ import {
   GoBackLink,
   IconBack,
   MovieInfo,
-} from './MovieDetails.styled';
+} from './MovieDetailsPage.styled';
 
 import { getMovieById, getImg } from 'services/moviesApi';
 
-const MovieDetails = () => {
+const MovieDetailsPage = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
   const location = useLocation();
@@ -28,6 +28,8 @@ const MovieDetails = () => {
   if (!movie) {
     return null;
   }
+
+  console.log(movie);
 
   const {
     title,
@@ -46,7 +48,7 @@ const MovieDetails = () => {
 
   return (
     <MovieContainer>
-      <Box mt="32px">
+      <Box>
         <GoBackLink to={backLinkHref}>
           <IconBack size="24px" /> Go back
         </GoBackLink>
@@ -79,4 +81,4 @@ const MovieDetails = () => {
   );
 };
 
-export default MovieDetails;
+export default MovieDetailsPage;

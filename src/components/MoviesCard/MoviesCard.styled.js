@@ -2,12 +2,14 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 export const MovieItem = styled.li`
-  flex-basis: calc((100% - 64px) / 5);
+  flex-basis: calc((100% - 4rem) / 5);
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 0.5rem;
 
   color: ${p => p.theme.colors.text};
+
+  transition: color ${p => p.theme.transitions.main};
 
   :hover {
     color: ${p => p.theme.colors.accent};
@@ -16,16 +18,20 @@ export const MovieItem = styled.li`
 
 export const StyledLink = styled(NavLink)`
   color: inherit;
+
+  & > img {
+    min-height: 300px;
+  }
 `;
 
 export const CardTitle = styled.h4`
-  font-size: ${p => p.theme.fontSizes[4]}px;
+  font-size: ${p => p.theme.fontSizes[4]};
   font-family: ${p => p.theme.fonts.heading};
-  padding: 6px 0;
+  padding: 0.375rem 0;
 `;
 
 export const CardText = styled.p`
-  font-size: ${p => p.theme.fontSizes[2]}px;
+  font-size: ${p => p.theme.fontSizes[2]};
   font-style: italic;
-  padding: 2px 0;
+  padding: 0.125rem 0;
 `;

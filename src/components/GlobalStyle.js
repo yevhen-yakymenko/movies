@@ -5,19 +5,22 @@ export const GlobalStyle = createGlobalStyle`
   html {
     width: 100vw; 
     overflow-x: hidden;
-    }
+  }
 
   body {
     margin: 0 auto;
+
     font-family: ${p => p.theme.fonts.body};
     background-color: ${p => p.theme.colors.black};
     font-weight: ${p => p.theme.fontWeights.body};
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
     color: ${p => p.theme.colors.text};
   }
 
-  a{
+  main {
+    flex: 1 1 100%;
+  }
+
+  a {
     text-decoration: none;
   }
   
@@ -35,8 +38,19 @@ export const GlobalStyle = createGlobalStyle`
     display: block;
     max-width: 100%;
     height: auto;
-}
+  }
+
   #root {
     margin: 0 auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .container {
+    margin: 0 auto;
+    padding-left: 0.9375rem;
+    padding-right: 0.9375rem;
+    max-width: ${p => p.theme.sizes.container};
   }
 `;

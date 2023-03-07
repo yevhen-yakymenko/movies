@@ -1,5 +1,6 @@
 import {
   MainHeader,
+  HeaderContainer,
   LogoContainer,
   LogoLink,
   LogoIcon,
@@ -12,20 +13,24 @@ const AppBar = () => {
   return (
     <>
       <MainHeader>
-        <LogoContainer>
-          <LogoIcon size="32px" color="white" />
-          <LogoLink to="/">movieSPA</LogoLink>
-        </LogoContainer>
-        <NavigationContainer>
-          <NavigationList>
-            <StyledLink to="/">Home</StyledLink>
-            <StyledLink to="movies">Movies</StyledLink>
-          </NavigationList>
-          {/* <form>
+        <HeaderContainer>
+          <LogoContainer>
+            <LogoLink to="/">
+              <LogoIcon size="32px" color="white" />
+              movieSPA
+            </LogoLink>
+          </LogoContainer>
+          <NavigationContainer>
+            <NavigationList>
+              <StyledLink to="/">Home</StyledLink>
+              <StyledLink to="movies">Movies</StyledLink>
+            </NavigationList>
+            {/* <form>
             <input />
             <button type="submit">Search</button>
           </form> */}
-        </NavigationContainer>
+          </NavigationContainer>
+        </HeaderContainer>
       </MainHeader>
     </>
   );

@@ -16,7 +16,7 @@ const SearchPage = () => {
   const serchRequets = searchParams.get('request');
 
   return (
-    <Box as="main" display="flex" height="100vh" pt="64px">
+    <Box as="section" display="flex" height="100%">
       <NavigationBox />
       <MoviesBox movieRef={serchRequets}>
         <SearchBox onSubmit={onSearchMovie} />

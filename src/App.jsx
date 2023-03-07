@@ -3,14 +3,13 @@ import { Route, Routes, Navigate } from 'react-router-dom';
 
 import Layout from 'components/Layout';
 
-// import MoviesBox from 'components/MoviesBox';
 import { GlobalStyle } from 'components/GlobalStyle';
 
 import moviesRefs from 'data/moviesRefs.json';
 
 const HomePage = lazy(() => import('./pages/HomePage'));
 const SearchPage = lazy(() => import('./pages/SearchPage'));
-const MovieDetails = lazy(() => import('./pages/MovieDetails'));
+const MovieDetailsPage = lazy(() => import('./pages/MovieDetailsPage'));
 const MovieCast = lazy(() => import('./components/MovieCast'));
 const MovieReviews = lazy(() => import('./components/MovieReviews'));
 
@@ -30,7 +29,7 @@ const App = () => {
           ))}
 
           <Route path="movies" element={<SearchPage />} />
-          <Route path="movies/:movieId" element={<MovieDetails />}>
+          <Route path="movies/:movieId" element={<MovieDetailsPage />}>
             <Route path="cast" element={<MovieCast />} />
             <Route path="reviews" element={<MovieReviews />} />
           </Route>

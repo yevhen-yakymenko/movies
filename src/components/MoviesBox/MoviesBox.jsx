@@ -1,12 +1,17 @@
 import { useState, useEffect } from 'react';
 
-import MoviesList from 'components/MoviesList';
-// import Box from 'components/Box';
-import { MoviesContainer } from './MoviesBox.styled';
+import MoviesCard from 'components/MoviesCard';
+
+import {
+  MoviesContainer,
+  MoviesTitle,
+  MoviesList,
+  LoadMoreBtn,
+} from './MoviesBox.styled';
 
 import { getMovies, getGenres } from 'services/moviesApi';
 
-const MoviesBox = ({ movieRef, children }) => {
+const MoviesBox = ({ movieRef, title }) => {
   const [movies, setMovies] = useState([]);
   const [ref, setRef] = useState('');
   const [page, setPage] = useState(1);
@@ -18,6 +23,7 @@ const MoviesBox = ({ movieRef, children }) => {
       try {
         const { results, total_pages } = await getMovies(ref, page);
         setMovies(prevMovies => [...prevMovies, ...results]);
+        console.log(results);
         setTotalPages(total_pages);
         const { genres } = await getGenres();
         setGenres(genres);
@@ -44,18 +50,30 @@ const MoviesBox = ({ movieRef, children }) => {
     setPage(prevPage => prevPage + 1);
   };
 
-  let onLastPage = totalPages - page;
+  let lastPage = totalPages - page;
 
   return (
     <MoviesContainer>
-      {children}
+      <MoviesTitle>{title}</MoviesTitle>
 
-      <MoviesList
-        movies={movies}
-        genres={genres}
-        lastPage={onLastPage}
-        loadMore={onLoadMore}
-      />
+      <MoviesList>
+        {movies.map(movie => (
+          <MoviesCard key={movie.id} movie={movie} genres={genres} />
+        ))}
+        {/* <li>
+          {movies.length > 0 && lastPage > 0 && (
+            <button type="button" onClick={() => onLoadMore()}>
+              Load more
+            </button>
+          )}
+        </li> */}
+      </MoviesList>
+
+      {movies.length > 0 && lastPage > 0 && (
+        <LoadMoreBtn type="button" onClick={() => onLoadMore()}>
+          Load more
+        </LoadMoreBtn>
+      )}
     </MoviesContainer>
   );
 };

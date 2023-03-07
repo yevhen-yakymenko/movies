@@ -1,7 +1,13 @@
 import styled from 'styled-components';
 
-export const PageTitle = styled.h1`
-  font-family: ${p => p.theme.fonts.heading};
-  font-weight: ${p => p.theme.fontWeights.heading};
-  color: ${p => p.theme.colors.white};
+export const PageSection = styled.section`
+  width: 100%;
+`;
+
+export const SectionContainer = styled.div.attrs(_ => ({
+  className: 'container',
+}))`
+  position: relative;
+  width: 100%;
+  display: flex;
 `;
