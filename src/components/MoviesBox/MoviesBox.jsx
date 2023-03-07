@@ -60,13 +60,6 @@ const MoviesBox = ({ movieRef, title }) => {
         {movies.map(movie => (
           <MoviesCard key={movie.id} movie={movie} genres={genres} />
         ))}
-        {/* <li>
-          {movies.length > 0 && lastPage > 0 && (
-            <button type="button" onClick={() => onLoadMore()}>
-              Load more
-            </button>
-          )}
-        </li> */}
       </MoviesList>
 
       {movies.length > 0 && lastPage > 0 && (
