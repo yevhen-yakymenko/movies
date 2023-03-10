@@ -18,6 +18,7 @@ export const MainHeader = styled.header`
 export const HeaderContainer = styled.div.attrs(_ => ({
   className: 'container',
 }))`
+  position: relative;
   width: 100%;
   max-height: 4rem;
   display: flex;
@@ -25,6 +26,7 @@ export const HeaderContainer = styled.div.attrs(_ => ({
 `;
 
 export const LogoContainer = styled.div`
+  margin-right: 3.5rem;
   min-width: ${p => p.theme.sizes.aside};
   background-color: ${p => p.theme.colors.secondary};
 `;
@@ -52,21 +54,92 @@ export const LogoIcon = styled(MdLocalMovies)`
   border-radius: 0.25rem;
 `;
 
-export const NavigationContainer = styled.div`
-  padding: 0 2.5rem;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+export const ToggleMenuBtn = styled.button`
+  margin-left: auto;
+  padding: ${p => p.theme.space[2]};
+
+  font-size: ${p => p.theme.fontSizes[7]};
+  color: ${p => p.theme.colors.text};
+
+  background-color: transparent;
+  border: none;
+
+  cursor: pointer;
+
+  transition: color ${p => p.theme.transitions.main};
+
+  :hover,
+  :focus {
+    color: ${p => p.theme.colors.btnText};
+  }
+
+  @media screen and (min-width: ${p => p.theme.breakpoints.tablet}) {
+    display: none;
+  }
+
+  & > span {
+    display: flex;
+    pointer-events: none;
+  }
 `;
 
-export const NavigationList = styled.nav`
-  width: 12.5rem;
+export const MenuContainer = styled.div`
+  width: 100%;
   display: flex;
-  justify-content: space-around;
+
+  @media screen and (max-width: calc(${p =>
+      p.theme.breakpoints.tablet} - 0.0375rem)) {
+    position: absolute;
+    left: 0;
+    top: 4rem;
+    padding: 0px 0.625rem;
+    height: calc(100vh - 4rem);
+
+    background-color: ${p => p.theme.colors.pirmary};
+
+    transform: translateX(100%);
+
+    transition: transform ${p => p.theme.transitions.main};
+
+    &.menu-open {
+      transform: translateX(0);
+    }
+  }
+
+  @media screen and (min-width: ${p => p.theme.breakpoints.pc}) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+`;
+
+export const NavigationMenu = styled.nav`
+  @media screen and (max-width: calc(${p =>
+      p.theme.breakpoints.tablet} - 0.0375rem)) {
+    margin: 0 auto;
+    padding-top: 2rem;
+    display: inline-flex;
+    height: max-content;
+  }
+
+  & > ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3.125rem;
+
+    text-align: center;
+
+    @media screen and (max-width: calc(${p =>
+        p.theme.breakpoints.tablet} - 0.0375rem)) {
+      margin: 0 auto;
+      flex-direction: column;
+      gap: 2rem;
+    }
+  }
 `;
 
 export const StyledLink = styled(NavLink)`
+  display: block;
+
   font-weight: ${p => p.theme.fontWeights.medium};
   color: ${p => p.theme.colors.text};
 
@@ -74,5 +147,11 @@ export const StyledLink = styled(NavLink)`
 
   :hover {
     color: ${p => p.theme.colors.accent};
+  }
+
+  @media screen and (max-width: calc(${p =>
+      p.theme.breakpoints.tablet} - 0.0375rem)) {
+    padding: 0.625rem 6.25rem;
+    min-width: 16.25rem;
   }
 `;
