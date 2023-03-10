@@ -26,9 +26,12 @@ export const HeaderContainer = styled.div.attrs(_ => ({
 `;
 
 export const LogoContainer = styled.div`
-  margin-right: 3.5rem;
   min-width: ${p => p.theme.sizes.aside};
   background-color: ${p => p.theme.colors.secondary};
+
+  @media screen and (min-width: ${p => p.theme.breakpoints.mobile}) {
+    margin-right: 3.5rem;
+  }
 `;
 
 export const LogoLink = styled(NavLink)`
@@ -69,7 +72,7 @@ export const ToggleMenuBtn = styled.button`
   transition: color ${p => p.theme.transitions.main};
 
   :hover,
-  :focus {
+  :focus-visible {
     color: ${p => p.theme.colors.btnText};
   }
 

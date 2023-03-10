@@ -1,23 +1,42 @@
+import { HiOutlineArrowNarrowRight } from 'react-icons/hi';
+
+import moviesRefs from 'data/moviesRefs.json';
+
 import {
   Aside,
   Controls,
+  MenuItem,
   StyledLink,
-  ArrowRightIcon,
+  // ArrowRightIcon,
 } from './ControlsBar.styled';
-
-import moviesRefs from 'data/moviesRefs.json';
 
 const ControlsBar = () => {
   return (
     <Aside>
       <Controls>
+        {/* <ToggleMenuBtn
+          type="button"
+          aria-controls="navigation-menu"
+          aria-expanded={isOpen}
+          onClick={() => toggleMenu()}
+          ref={MenuBtn}
+          // {...props}
+        >
+          <span aria-label="mobile menu switch">
+            {!isOpen ? <IoMenuOutline /> : <IoCloseOutline />}
+          </span>
+        </ToggleMenuBtn> */}
         <ul>
           {moviesRefs.map(({ name, title }) => (
-            <li key={name}>
+            <MenuItem key={name}>
               <StyledLink to={`../${name}`}>
-                {title} <ArrowRightIcon />
+                {title}
+                {/* <ArrowRightIcon /> */}
               </StyledLink>
-            </li>
+              <span>
+                <HiOutlineArrowNarrowRight />
+              </span>
+            </MenuItem>
           ))}
         </ul>
       </Controls>

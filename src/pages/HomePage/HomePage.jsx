@@ -1,14 +1,20 @@
 import ControlsBar from 'components/ControlsBar';
 import MoviesBox from 'components/MoviesBox';
 
-import { PageSection, SectionContainer } from './HomePage.styled';
+import {
+  PageSection,
+  SectionContainer,
+  SectionWrapper,
+} from './HomePage.styled';
 
 const HomePage = ({ title, movieRef }) => {
   return (
     <PageSection>
       <SectionContainer>
-        <ControlsBar />
-        <MoviesBox movieRef={movieRef} title={title} />
+        <SectionWrapper>
+          <ControlsBar />
+          <MoviesBox movieRef={movieRef} title={title} />
+        </SectionWrapper>
       </SectionContainer>
     </PageSection>
   );

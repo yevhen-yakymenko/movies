@@ -6,6 +6,7 @@ import {
   MoviesContainer,
   MoviesTitle,
   MoviesList,
+  BtnBox,
   LoadMoreBtn,
 } from './MoviesBox.styled';
 
@@ -60,13 +61,14 @@ const MoviesBox = ({ movieRef, title }) => {
         {movies.map(movie => (
           <MoviesCard key={movie.id} movie={movie} genres={genres} />
         ))}
+        <BtnBox>
+          {movies.length > 0 && lastPage > 0 && (
+            <LoadMoreBtn type="button" onClick={() => onLoadMore()}>
+              Load more
+            </LoadMoreBtn>
+          )}
+        </BtnBox>
       </MoviesList>
-
-      {movies.length > 0 && lastPage > 0 && (
-        <LoadMoreBtn type="button" onClick={() => onLoadMore()}>
-          Load more
-        </LoadMoreBtn>
-      )}
     </MoviesContainer>
   );
 };

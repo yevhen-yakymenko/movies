@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const MainFooter = styled.div`
   color: ${p => p.theme.colors.white};
   background-color: #222222;
+  z-index: 2;
 `;
 
 export const SectionContainer = styled.div.attrs(_ => ({
