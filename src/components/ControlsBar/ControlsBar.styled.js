@@ -16,6 +16,13 @@ export const Aside = styled.aside`
     /* left: 0; */
 
     transform: translateX(calc(-100% + 44px));
+    /* transform: translateX(-100%); */
+
+    transition: transform ${p => p.theme.transitions.main};
+
+    &:hover {
+      transform: translateX(0);
+    }
   }
 
   @media screen and (min-width: ${p => p.theme.breakpoints.tablet}) {
@@ -26,7 +33,7 @@ export const Aside = styled.aside`
 export const Controls = styled.nav`
   padding-top: 3.5rem;
   padding-bottom: 3.5rem;
-  padding-left: 0.25rem;
+  /* padding-left: 0.25rem; */
   width: ${p => p.theme.sizes.aside};
 
   height: 100%;
@@ -51,28 +58,11 @@ export const Controls = styled.nav`
 
 export const MenuItem = styled.li`
   position: relative;
+  padding-left: 0.25rem;
+  padding-right: 48px;
 
-  & > span {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    width: 44px;
-    height: 44px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    color: #535a5f;
-    opacity: 0;
-
-    transform: translateY(-50%);
-
-    pointer-events: none;
-
-    /* transition: opacity ${p => p.theme.transitions.main}; */
-    transition: opacity 500ms cubic-bezier(0.4, 0, 0.2, 1);
-  }
+  max-width: ${p => p.theme.sizes.aside};
+  width: 100%;
 `;
 
 export const StyledLink = styled(NavLink)`
@@ -80,19 +70,44 @@ export const StyledLink = styled(NavLink)`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 2.75rem 1rem 1.25rem;
+  padding: 1rem 0rem 1rem 1.25rem;
   color: ${p => p.theme.colors.text};
 
   transition: color ${p => p.theme.transitions.main},
     background-color ${p => p.theme.transitions.main};
 
+  & > span {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 44px;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #535a5f;
+    background-color: ${p => p.theme.colors.background};
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition: opacity ${p => p.theme.transitions.main};
+    /* transition: opacity 500ms cubic-bezier(0.4, 0, 0.2, 1); */
+
+    &.active {
+      opacity: 1;
+    }
+  }
+
   &.active {
     background-color: ${p => p.theme.colors.background};
     color: ${p => p.theme.colors.secondary};
 
-    & + span {
+    /* & > span {
       opacity: 1;
-    }
+    } */
   }
 
   :hover:not(.active),

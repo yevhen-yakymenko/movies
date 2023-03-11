@@ -2,13 +2,7 @@ import { HiOutlineArrowNarrowRight } from 'react-icons/hi';
 
 import moviesRefs from 'data/moviesRefs.json';
 
-import {
-  Aside,
-  Controls,
-  MenuItem,
-  StyledLink,
-  // ArrowRightIcon,
-} from './ControlsBar.styled';
+import { Aside, Controls, MenuItem, StyledLink } from './ControlsBar.styled';
 
 const ControlsBar = () => {
   return (
@@ -31,11 +25,15 @@ const ControlsBar = () => {
             <MenuItem key={name}>
               <StyledLink to={`../${name}`}>
                 {title}
-                {/* <ArrowRightIcon /> */}
+                {({ isActive, isPending }) => (
+                  <span className={isActive ? 'active' : ''}>
+                    <HiOutlineArrowNarrowRight />
+                  </span>
+                )}
+                {/* <span>
+                  <HiOutlineArrowNarrowRight />
+                </span> */}
               </StyledLink>
-              <span>
-                <HiOutlineArrowNarrowRight />
-              </span>
             </MenuItem>
           ))}
         </ul>
