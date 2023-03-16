@@ -59,7 +59,6 @@ export const Controls = styled.nav`
 export const MenuItem = styled.li`
   position: relative;
   padding-left: 0.25rem;
-  padding-right: 48px;
 
   max-width: ${p => p.theme.sizes.aside};
   width: 100%;
@@ -67,51 +66,38 @@ export const MenuItem = styled.li`
 
 export const StyledLink = styled(NavLink)`
   max-width: ${p => p.theme.sizes.aside};
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 0rem 1rem 1.25rem;
+  padding: 1rem 1rem 1rem 1.25rem;
   color: ${p => p.theme.colors.text};
 
   transition: color ${p => p.theme.transitions.main},
     background-color ${p => p.theme.transitions.main};
 
-  & > span {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 44px;
-    height: 100%;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    color: #535a5f;
-    background-color: ${p => p.theme.colors.background};
-    opacity: 0;
-
-    pointer-events: none;
-
-    transition: opacity ${p => p.theme.transitions.main};
-    /* transition: opacity 500ms cubic-bezier(0.4, 0, 0.2, 1); */
-
-    &.active {
-      opacity: 1;
-    }
-  }
-
   &.active {
     background-color: ${p => p.theme.colors.background};
     color: ${p => p.theme.colors.secondary};
-
-    /* & > span {
-      opacity: 1;
-    } */
   }
 
   :hover:not(.active),
   :focus-visible:not(.active) {
     color: ${p => p.theme.colors.accent};
+  }
+`;
+
+export const LinkIcon = styled.span`
+  display: flex;
+  justify-content: center;
+
+  color: #535a5f;
+  opacity: 0;
+
+  pointer-events: none;
+  transition: opacity ${p => p.theme.transitions.main};
+
+  ${StyledLink}.active & {
+    opacity: 1;
   }
 `;
