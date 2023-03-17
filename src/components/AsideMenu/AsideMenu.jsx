@@ -1,13 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
 import { IoChevronForward } from 'react-icons/io5';
-
 import { HiOutlineArrowNarrowRight } from 'react-icons/hi';
 
 import moviesRefs from 'data/moviesRefs.json';
 
 import {
   Aside,
-  // AsideWrapper,
   AsideNav,
   AsideBtnControl,
   MenuItem,
@@ -50,7 +48,6 @@ const AsideMenu = () => {
 
   return (
     <Aside id="aside-menu" ref={AsideRef}>
-      {/* <AsideWrapper id="aside-menu" ref={AsideRef}> */}
       <AsideNav ref={AsideNavRef}>
         <ul>
           {moviesRefs.map(({ name, title }) => (
@@ -66,7 +63,6 @@ const AsideMenu = () => {
           ))}
         </ul>
       </AsideNav>
-      {/* </AsideWrapper> */}
       <AsideBtnControl
         type="button"
         aria-label="open aside menu button"

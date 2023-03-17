@@ -30,8 +30,6 @@ export const Aside = styled.aside`
   }
 `;
 
-// export const AsideWrapper = styled.div``;
-
 export const AsideBtnControl = styled.button`
   padding: 0;
   width: 2.75rem;
