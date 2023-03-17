@@ -1,4 +1,4 @@
-import ControlsBar from 'components/ControlsBar';
+import AsideMenu from 'components/AsideMenu';
 import MoviesBox from 'components/MoviesBox';
 
 import {
@@ -12,7 +12,7 @@ const HomePage = ({ title, movieRef }) => {
     <PageSection>
       <SectionContainer>
         <SectionWrapper>
-          <ControlsBar />
+          <AsideMenu />
           <MoviesBox movieRef={movieRef} title={title} />
         </SectionWrapper>
       </SectionContainer>
