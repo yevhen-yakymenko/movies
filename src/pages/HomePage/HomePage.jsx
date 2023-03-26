@@ -4,17 +4,17 @@ import MoviesBox from 'components/MoviesBox';
 import {
   PageSection,
   SectionContainer,
-  SectionWrapper,
+  MoviesWrapper,
 } from './HomePage.styled';
 
 const HomePage = ({ title, movieRef }) => {
   return (
     <PageSection>
       <SectionContainer>
-        <SectionWrapper>
-          <AsideMenu />
+        <AsideMenu />
+        <MoviesWrapper>
           <MoviesBox movieRef={movieRef} title={title} />
-        </SectionWrapper>
+        </MoviesWrapper>
       </SectionContainer>
     </PageSection>
   );

@@ -1,14 +1,19 @@
 import styled from 'styled-components';
 import { BiSearch } from 'react-icons/bi';
 
-export const FormWrapper = styled.div``;
-
 export const SearchForm = styled.form`
-  width: 75%;
+  padding-top: 1rem;
+  width: 100%;
   align-self: center;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  background-color: ${p => p.theme.colors.background};
+
+  @media screen and (min-width: ${p => p.theme.breakpoints.pc}) {
+    padding-top: 1.5rem;
+  }
 `;
 
 export const SearchInput = styled.input`
@@ -18,19 +23,19 @@ export const SearchInput = styled.input`
   color: ${p => p.theme.colors.muted};
   background-color: ${p => p.theme.colors.text};
   border: none;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
+  border-top-left-radius: 1.25rem;
+  border-bottom-left-radius: 1.25rem;
   outline: none;
-  padding: 8px 16px;
+  padding: 0.5rem 1rem;
 `;
 
 export const SeacrhButton = styled.button`
   display: flex;
-  padding: 8px;
+  padding: 0.5rem;
   background-color: ${p => p.theme.colors.secondary};
   border: none;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
+  border-top-right-radius: 1.25rem;
+  border-bottom-right-radius: 1.25rem;
   cursor: pointer;
 `;
 

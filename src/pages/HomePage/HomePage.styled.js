@@ -9,11 +9,8 @@ export const PageSection = styled.section`
 export const SectionContainer = styled.div.attrs(_ => ({
   className: 'container',
 }))`
-  width: 100%;
-`;
-
-export const SectionWrapper = styled.div`
   position: relative;
+  padding-top: 4rem;
   width: 100%;
   display: flex;
 
@@ -24,5 +21,12 @@ export const SectionWrapper = styled.div`
 
   @media screen and (min-width: ${p => p.theme.breakpoints.mobile}) {
     display: flex;
+  }
+`;
+
+export const MoviesWrapper = styled.div`
+  @media screen and (max-width: calc(${p =>
+      p.theme.breakpoints.tablet} - 0.0375rem)) {
+    padding-left: 3.375rem;
   }
 `;

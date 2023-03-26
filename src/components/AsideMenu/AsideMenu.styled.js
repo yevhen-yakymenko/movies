@@ -4,8 +4,6 @@ import { NavLink } from 'react-router-dom';
 export const Aside = styled.aside`
   position: fixed;
   top: 0;
-
-  padding-top: 4rem;
   width: ${p => p.theme.sizes.aside};
   height: 100vh;
   display: flex;
@@ -14,7 +12,7 @@ export const Aside = styled.aside`
 
   @media screen and (max-width: calc(${p =>
       p.theme.breakpoints.tablet} - 0.0375rem)) {
-    transform: translateX(calc(-100% + 44px));
+    transform: translateX(calc(-100% + 2.75rem));
 
     transition: transform ${p => p.theme.transitions.main};
 
@@ -35,7 +33,7 @@ export const AsideBtnControl = styled.button`
   width: 2.75rem;
   flex-shrink: 0;
 
-  font-size: 24px;
+  font-size: 1.5rem;
   color: ${p => p.theme.colors.white};
 
   background-color: ${p => p.theme.colors.muted};
@@ -56,6 +54,8 @@ export const AsideBtnControl = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
+
+    pointer-events: none;
 
     transition: transform ${p => p.theme.transitions.main};
 
@@ -80,7 +80,7 @@ export const AsideNav = styled.nav`
 
   @media screen and (max-width: calc(${p =>
       p.theme.breakpoints.tablet} - 0.0375rem)) {
-    width: calc(${p => p.theme.sizes.aside} - 44px);
+    width: calc(${p => p.theme.sizes.aside} - 2.75rem);
 
     border-right: 2px solid ${p => p.theme.colors.background};
     opacity: 0;

@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 export const MoviesContainer = styled.div`
-  padding-top: 5rem;
+  padding-top: 1rem;
   padding-bottom: 2.5rem;
-  padding-left: 3.375rem;
+  /* padding-left: 0.625rem; */
   width: 100%;
 
   @media screen and (min-width: ${p => p.theme.breakpoints.tablet}) {
@@ -11,7 +11,7 @@ export const MoviesContainer = styled.div`
   }
 
   @media screen and (min-width: ${p => p.theme.breakpoints.pc}) {
-    padding-top: 5.5rem;
+    padding-top: 1.5rem;
   }
 `;
 

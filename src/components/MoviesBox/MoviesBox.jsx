@@ -55,7 +55,7 @@ const MoviesBox = ({ movieRef, title }) => {
 
   return (
     <MoviesContainer>
-      <MoviesTitle>{title}</MoviesTitle>
+      {title && <MoviesTitle>{title}</MoviesTitle>}
 
       <MoviesList>
         {movies.map(movie => (

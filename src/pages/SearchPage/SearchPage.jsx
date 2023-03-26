@@ -1,10 +1,14 @@
 import { useSearchParams } from 'react-router-dom';
 
-import Box from 'components/Box';
 import MoviesBox from 'components/MoviesBox';
 import SearchBox from 'components/SearchBox';
 
-import { NavigationBox } from './SearchPage.styled';
+import {
+  PageSection,
+  SectionContainer,
+  NavigationBox,
+  ContentBox,
+} from './SearchPage.styled';
 
 const SearchPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -16,12 +20,15 @@ const SearchPage = () => {
   const serchRequets = searchParams.get('request');
 
   return (
-    <Box as="section" display="flex" height="100%">
-      <NavigationBox />
-      <MoviesBox movieRef={serchRequets}>
-        <SearchBox onSubmit={onSearchMovie} />
-      </MoviesBox>
-    </Box>
+    <PageSection>
+      <SectionContainer>
+        <NavigationBox />
+        <ContentBox>
+          <SearchBox onSubmit={onSearchMovie} />
+          <MoviesBox movieRef={serchRequets} />
+        </ContentBox>
+      </SectionContainer>
+    </PageSection>
   );
 };
 
