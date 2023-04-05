@@ -22,7 +22,7 @@ const MovieReviewsItem = ({ review }) => {
         <p>Rating: {rating}</p>
       </Box>
       <div>
-        <p>{content}</p>
+        <p dangerouslySetInnerHTML={{ __html: content }} />
         <p>Create: {created_at}</p>
         <p>Update: {updated_at}</p>
       </div>

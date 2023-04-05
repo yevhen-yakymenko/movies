@@ -24,7 +24,6 @@ const MoviesBox = ({ movieRef, title }) => {
       try {
         const { results, total_pages } = await getMovies(ref, page);
         setMovies(prevMovies => [...prevMovies, ...results]);
-        console.log(results);
         setTotalPages(total_pages);
         const { genres } = await getGenres();
         setGenres(genres);

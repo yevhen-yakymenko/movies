@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 export const MovieItem = styled.li`
-  /* max-width: 400px; */
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -21,16 +20,6 @@ export const StyledLink = styled(NavLink)`
 
   & > img {
     min-height: 100px;
-
-    @media screen and (min-width: ${p => p.theme.breakpoints.mobile}) {
-    }
-
-    @media screen and (min-width: ${p => p.theme.breakpoints.tablet}) {
-    }
-
-    @media screen and (min-width: ${p => p.theme.breakpoints.pc}) {
-      /* min-height: 300px; */
-    }
   }
 `;
 

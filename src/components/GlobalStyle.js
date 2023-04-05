@@ -20,6 +20,19 @@ export const GlobalStyle = createGlobalStyle`
     &.menu-open {
       overflow: hidden;
     }
+
+    ::-webkit-scrollbar {
+      margin-top: 16px;
+      width: 5px;
+      height: 8px;
+      background-color: #aaa;
+     border-radius: 4px;
+   }
+
+    ::-webkit-scrollbar-thumb {
+      background: ${p => p.theme.colors.muted};
+      border-radius: 4px;
+    }
   }
 
   main {

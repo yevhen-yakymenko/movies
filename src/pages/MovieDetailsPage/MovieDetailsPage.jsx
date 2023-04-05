@@ -1,13 +1,20 @@
 import { useState, useEffect, Suspense } from 'react';
-import { NavLink, Outlet, useParams, useLocation } from 'react-router-dom';
-
-import Box from 'components/Box';
+import { Outlet, useParams, useLocation } from 'react-router-dom';
+import { TiArrowBack } from 'react-icons/ti';
 
 import {
+  MovieWrapper,
   MovieContainer,
+  Aside,
+  MovieDetails,
   GoBackLink,
-  IconBack,
+  LinkIcon,
+  LinkText,
   MovieInfo,
+  MoviePoster,
+  MovieDescription,
+  LinksList,
+  StyledLink,
 } from './MovieDetailsPage.styled';
 
 import { getMovieById, getImg } from 'services/moviesApi';
@@ -29,55 +36,76 @@ const MovieDetailsPage = () => {
     return null;
   }
 
-  console.log(movie);
-
   const {
     title,
-    tagline,
     genres,
     poster_path,
     release_date,
     overview,
     vote_average,
+    vote_count,
     runtime,
   } = movie;
 
   const backLinkHref = location.state?.from ?? '/';
-  const MovieGenres = genres.map(({ name }) => name).join(', ');
-  const MovieScore = Math.round((vote_average / 10) * 100);
+  const movieReleaseDate = release_date.split('-').reverse().join('-');
+  const movieGenres = genres.map(({ name }) => name).join(', ');
+  const movieRuntime = `${parseInt(runtime / 60)}h ${runtime % 60}min`;
+  const movieRating = Math.round(vote_average * 10) / 10;
 
   return (
-    <MovieContainer>
-      <Box>
-        <GoBackLink to={backLinkHref}>
-          <IconBack size="24px" /> Go back
-        </GoBackLink>
-        <MovieInfo>
-          <Box width="320px">
-            <img src={getImg(poster_path)} alt={title} />
-          </Box>
+    <MovieWrapper>
+      <MovieContainer>
+        <Aside>
+          <GoBackLink to={backLinkHref}>
+            <LinkIcon>
+              <TiArrowBack />
+            </LinkIcon>
+            <LinkText>Go back</LinkText>
+          </GoBackLink>
+        </Aside>
 
-          <Box width="900px">
-            <h2>
-              {title} ({release_date})
-            </h2>
-            <p>{MovieGenres}</p>
-            <p>{runtime} min</p>
-            <p>User score: {MovieScore}%</p>
-            <h4>{tagline}</h4>
-            <h3>Overview</h3>
-            <p>{overview}</p>
-            <div>
-              <NavLink to="cast">Cast</NavLink>
-              <NavLink to="reviews">Reviews</NavLink>
-            </div>
-          </Box>
-        </MovieInfo>
-      </Box>
-      <Suspense fallback={<div>Loading...</div>}>
-        <Outlet />
-      </Suspense>
-    </MovieContainer>
+        <MovieDetails>
+          <MovieInfo>
+            <MoviePoster>
+              <img src={getImg(poster_path)} alt={title} />
+            </MoviePoster>
+
+            <MovieDescription>
+              <h1>{title}</h1>
+              <p>
+                <span>Genre:</span> {movieGenres}
+              </p>
+              <p>
+                <span>Release date:</span> {movieReleaseDate}
+              </p>
+              <p>
+                <span>Runtime:</span> {runtime} min ({movieRuntime})
+              </p>
+              <p>
+                <span>Rating:</span> {movieRating}/10 ({vote_count})
+              </p>
+              <div>
+                <h3>Overview:</h3>
+                <p>{overview}</p>
+              </div>
+              <LinksList>
+                <li>
+                  <StyledLink to="cast">Cast</StyledLink>
+                </li>
+                <li>
+                  <StyledLink to="reviews">Reviews</StyledLink>
+                </li>
+              </LinksList>
+            </MovieDescription>
+          </MovieInfo>
+
+          <Suspense fallback={<div>Loading...</div>}>
+            <Outlet />
+          </Suspense>
+        </MovieDetails>
+      </MovieContainer>
+    </MovieWrapper>
   );
 };
 

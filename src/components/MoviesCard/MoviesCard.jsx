@@ -18,13 +18,16 @@ const MoviesCard = ({ movie, genres }) => {
     .filter(({ id }) => genre_ids.includes(id))
     .map(genre => genre.name);
 
+  const movieYear = release_date.slice(0, 4);
+
   return (
     <MovieItem>
       <StyledLink to={`../movies/${id}`} state={{ from: location }}>
         <img src={getImg(poster_path)} alt={title} />
-        <CardTitle>{title}</CardTitle>
+        <CardTitle>
+          {title} ({movieYear})
+        </CardTitle>
         <CardText>{movieGenres.join(', ')}</CardText>
-        <CardText>{release_date}</CardText>
       </StyledLink>
     </MovieItem>
   );
