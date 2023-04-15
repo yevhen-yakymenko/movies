@@ -46,6 +46,7 @@ export const LogoLink = styled(NavLink)`
   font-weight: ${p => p.theme.fontWeights.heading};
   letter-spacing: ${p => p.theme.letterSpacings.caps};
   color: ${p => p.theme.colors.text};
+  text-transform: uppercase;
   text-shadow: 0.125rem 0.125rem 1.25rem #ff0000,
     0.3125rem 0.3125rem 0.3125rem #000000;
 `;

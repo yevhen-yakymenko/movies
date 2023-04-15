@@ -50,7 +50,7 @@ const AppBar = () => {
         <LogoContainer>
           <LogoLink to="/">
             <LogoIcon size="32px" color="white" />
-            movieSPA
+            movies
           </LogoLink>
         </LogoContainer>
         <ToggleMenuBtn
