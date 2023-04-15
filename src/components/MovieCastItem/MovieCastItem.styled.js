@@ -1,21 +1,21 @@
 import styled from 'styled-components';
 
 export const CastItem = styled.li`
-  width: 140px;
+  width: 8.75rem;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 0.5rem;
 
   & h3 {
-    font-size: 16px;
+    font-size: 1rem;
   }
 
   & p {
-    font-size: 14px;
+    font-size: 0.875rem;
     font-style: italic;
   }
 `;
 
 export const PhotoBox = styled.div`
-  width: 140px;
+  width: 8.75rem;
 `;

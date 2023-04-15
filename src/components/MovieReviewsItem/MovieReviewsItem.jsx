@@ -1,6 +1,14 @@
-import Box from 'components/Box';
-
 import { getImg } from 'services/moviesApi';
+
+import {
+  ReviewItem,
+  UserInfo,
+  UserAvatarBox,
+  UserReviewBox,
+  UserReviewText,
+  UserReviewDate,
+} from './MovieReviewsItem.styled';
+import noAvatarImg from 'images/default-ava.jpg';
 
 const MovieReviewsItem = ({ review }) => {
   const {
@@ -11,22 +19,33 @@ const MovieReviewsItem = ({ review }) => {
   } = review;
 
   const author = name ? name : username;
+  const avatarPath = () => {
+    if (!avatar_path) {
+      return noAvatarImg;
+    }
+
+    return avatar_path.includes('https://')
+      ? avatar_path.slice(1)
+      : getImg(avatar_path);
+  };
+
+  const dateProcessing = date => new Date(date).toLocaleString();
 
   return (
-    <Box as="li" display="flex">
-      <Box width="200px">
-        <Box width="120px">
-          <img src={getImg(avatar_path)} alt={`${author} avatar`} />
-        </Box>
+    <ReviewItem>
+      <UserInfo>
+        <UserAvatarBox>
+          <img src={avatarPath()} alt={`${author} avatar`} />
+        </UserAvatarBox>
         <h3>{author}</h3>
-        <p>Rating: {rating}</p>
-      </Box>
-      <div>
-        <p dangerouslySetInnerHTML={{ __html: content }} />
-        <p>Create: {created_at}</p>
-        <p>Update: {updated_at}</p>
-      </div>
-    </Box>
+        <p>Rating: {rating ? rating : 0}</p>
+      </UserInfo>
+      <UserReviewBox>
+        <UserReviewText dangerouslySetInnerHTML={{ __html: content }} />
+        <UserReviewDate>Create: {dateProcessing(created_at)}</UserReviewDate>
+        <UserReviewDate>Update: {dateProcessing(updated_at)}</UserReviewDate>
+      </UserReviewBox>
+    </ReviewItem>
   );
 };
 

@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import MovieCastItem from 'components/MovieCastItem';
 import { getCast } from 'services/moviesApi';
 
-import { CastContainer, CastList } from './MovieCast.styled';
+import { CastList } from './MovieCast.styled';
 
 const MovieCast = () => {
   const [cast, setCast] = useState(null);
@@ -23,14 +23,11 @@ const MovieCast = () => {
   }
 
   return (
-    <CastContainer>
-      <h2>Cast</h2>
-      <CastList>
-        {cast.map(person => (
-          <MovieCastItem key={person.id} person={person} />
-        ))}
-      </CastList>
-    </CastContainer>
+    <CastList>
+      {cast.map(person => (
+        <MovieCastItem key={person.id} person={person} />
+      ))}
+    </CastList>
   );
 };
 

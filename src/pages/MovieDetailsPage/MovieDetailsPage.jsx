@@ -13,8 +13,10 @@ import {
   MovieInfo,
   MoviePoster,
   MovieDescription,
+  MovieAddInfo,
   LinksList,
   StyledLink,
+  AddInfo,
 } from './MovieDetailsPage.styled';
 
 import { getMovieById, getImg } from 'services/moviesApi';
@@ -89,20 +91,25 @@ const MovieDetailsPage = () => {
                 <h3>Overview:</h3>
                 <p>{overview}</p>
               </div>
-              <LinksList>
-                <li>
-                  <StyledLink to="cast">Cast</StyledLink>
-                </li>
-                <li>
-                  <StyledLink to="reviews">Reviews</StyledLink>
-                </li>
-              </LinksList>
             </MovieDescription>
           </MovieInfo>
 
-          <Suspense fallback={<div>Loading...</div>}>
-            <Outlet />
-          </Suspense>
+          <MovieAddInfo>
+            <LinksList>
+              <li>
+                <StyledLink to="cast">Cast</StyledLink>
+              </li>
+              <li>
+                <StyledLink to="reviews">Reviews</StyledLink>
+              </li>
+            </LinksList>
+
+            <AddInfo>
+              <Suspense fallback={<div>Loading...</div>}>
+                <Outlet />
+              </Suspense>
+            </AddInfo>
+          </MovieAddInfo>
         </MovieDetails>
       </MovieContainer>
     </MovieWrapper>

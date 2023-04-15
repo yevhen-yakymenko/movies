@@ -1,32 +1,22 @@
 import styled from 'styled-components';
 
-export const CastContainer = styled.div`
-  flex: 0 1 100%;
-  max-width: 100%;
-
-  & h2 {
-    margin-bottom: 16px;
-    font-size: 28px;
-  }
-`;
-
 export const CastList = styled.ul`
+  padding-bottom: 1rem;
   max-width: 100%;
   display: flex;
-  gap: 16px;
+  gap: 1rem;
 
-  overflow-x: scroll;
+  overflow-x: auto;
 
   ::-webkit-scrollbar {
-    margin-top: 16px;
-    width: 5px;
-    height: 8px;
+    width: 0.3125rem;
+    height: 0.5rem;
     background-color: #aaa;
-    border-radius: 4px;
+    border-radius: 0.25rem;
   }
 
   ::-webkit-scrollbar-thumb {
     background: ${p => p.theme.colors.muted};
-    border-radius: 4px;
+    border-radius: 0.25rem;
   }
 `;

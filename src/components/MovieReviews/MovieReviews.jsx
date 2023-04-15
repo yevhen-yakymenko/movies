@@ -5,6 +5,8 @@ import MovieReviewsItem from 'components/MovieReviewsItem';
 
 import { getReviews } from 'services/moviesApi';
 
+import { ReviewsList } from './MovieReviews.styled';
+
 const MovieReviews = () => {
   const [reviews, setReviews] = useState(null);
   const { movieId } = useParams();
@@ -24,18 +26,17 @@ const MovieReviews = () => {
   console.log(reviews);
 
   return (
-    <section>
-      <h1>Reviews</h1>
+    <>
       {reviews.length > 0 ? (
-        <ul>
+        <ReviewsList>
           {reviews.map(review => (
             <MovieReviewsItem key={review.id} review={review} />
           ))}
-        </ul>
+        </ReviewsList>
       ) : (
         <p>There are no reviews about the movie yet</p>
       )}
-    </section>
+    </>
   );
 };
 

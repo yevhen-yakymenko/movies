@@ -15,81 +15,98 @@ export const MovieContainer = styled.div.attrs(_ => ({
   display: flex;
 `;
 
-export const MovieDetails = styled.article`
-  max-width: 1130px;
-  padding: 96px 0 32px 32px;
+export const Aside = styled.aside`
+  position: sticky;
+  top: 0;
+
+  padding-top: 8.25rem;
+  width: 2.75rem;
+  height: 100vh;
+  /* height: calc(100vh - 60px); */
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
-  gap: 32px;
-
-  overflow-x: clip;
-`;
-
-export const Aside = styled.aside`
-  position: fixed;
-  top: 0;
-  width: ${p => p.theme.sizes.aside};
-  height: 100vh;
-  /* height: calc(100vh - 7.75rem); */
-  padding-top: 132px;
-  display: flex;
-  /* justify-content: center; */
+  align-items: center;
 
   background-color: ${p => p.theme.colors.muted};
 
-  /* @media screen and (max-width: calc(${p =>
-    p.theme.breakpoints.tablet} - 0.0375rem)) {
-    transform: translateX(calc(-100% + 2.75rem));
-
-    transition: transform ${p => p.theme.transitions.main};
-
-    &.menu-open {
-      transform: translateX(0);
-    }
-  } */
-
-  @media screen and (min-width: ${p => p.theme.breakpoints.tablet}) {
+  @media screen and (min-width: ${p => p.theme.breakpoints.pc}) {
     position: sticky;
     flex-shrink: 0;
-    display: block;
+    width: ${p => p.theme.sizes.aside};
   }
 `;
 
 export const GoBackLink = styled(NavLink)`
+  position: fixed;
+  top: 4.625rem;
   margin: 0 auto;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  min-width: 160px;
-  padding: 8px 24px 8px 24px;
-  border-radius: 24px;
+  padding: 0.5rem 0.5rem;
+  display: flex;
+
   color: ${p => p.theme.colors.text};
   background-color: ${p => p.theme.colors.secondary};
 
+  border-radius: 0.25rem;
+
   transition: color ${p => p.theme.transitions.main};
 
-  :hover {
+  :hover,
+  :focus-within {
     font-weight: ${p => p.theme.fontWeights.medium};
     color: ${p => p.theme.colors.accent};
+  }
+
+  @media screen and (min-width: ${p => p.theme.breakpoints.pc}) {
+    top: 6rem;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    min-width: 10rem;
+    padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+    border-radius: 1.5rem;
   }
 `;
 
 export const LinkIcon = styled.span`
   display: flex;
-  font-size: 24px;
+  font-size: 1.5rem;
 `;
 
-export const LinkText = styled.span``;
+export const LinkText = styled.span`
+  @media screen and (max-width: calc(${p =>
+      p.theme.breakpoints.pc} - 0.0375rem)) {
+    display: none;
+  }
+`;
+
+export const MovieDetails = styled.article`
+  max-width: 70.625rem;
+  padding: 4.625rem 0 0.625rem 0.625rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  overflow-x: clip;
+
+  @media screen and (min-width: ${p => p.theme.breakpoints.pc}) {
+    padding: 6rem 0 2rem 2rem;
+  }
+`;
 
 export const MovieInfo = styled.div`
   display: flex;
-  gap: 32px;
+  flex-direction: column;
+  gap: 2rem;
+
+  @media screen and (min-width: ${p => p.theme.breakpoints.tablet}) {
+    flex-direction: row;
+  }
 `;
 
 export const MoviePoster = styled.div`
   flex: 1 1;
-  min-width: 300px;
+  min-width: 18.75rem;
 `;
 
 export const MovieDescription = styled.div`
@@ -97,25 +114,29 @@ export const MovieDescription = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 32px;
+  gap: 2rem;
 
   & h1 {
-    font-size: 32px;
+    font-size: 2rem;
   }
 `;
+
+export const MovieAddInfo = styled.div``;
 
 export const LinksList = styled.ul`
   display: inline-flex;
   flex-wrap: wrap;
 
   border: 1px solid ${p => p.theme.colors.secondary};
-  border-radius: 24px;
+  border-bottom: none;
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
 
   overflow: hidden;
 `;
 
 export const StyledLink = styled(NavLink)`
-  padding: 1rem 0rem 1rem 1rem;
+  padding: 1rem 1rem 1rem 1rem;
   min-width: 100px;
   display: inline-flex;
   justify-content: center;
@@ -136,5 +157,16 @@ export const StyledLink = styled(NavLink)`
 
   @media screen and (min-width: ${p => p.theme.breakpoints.tablet}) {
     padding: 0.5rem 1rem;
+  }
+`;
+
+export const AddInfo = styled.div`
+  padding: 0.5rem;
+  border: 0.0625rem solid ${p => p.theme.colors.secondary};
+  border-radius: 0.75rem;
+  border-top-left-radius: 0;
+
+  @media screen and (min-width: ${p => p.theme.breakpoints.pc}) {
+    padding: 1rem;
   }
 `;
