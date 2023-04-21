@@ -22,16 +22,16 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     ::-webkit-scrollbar {
-      margin-top: 16px;
-      width: 5px;
-      height: 8px;
+      margin-top: 1rem;
+      width: 0.3125rem;
+      height: 0.5rem;
       background-color: #aaa;
-     border-radius: 4px;
+     border-radius: 0.25rem;
    }
 
     ::-webkit-scrollbar-thumb {
       background: ${p => p.theme.colors.muted};
-      border-radius: 4px;
+      border-radius: 0.25rem;
     }
   }
 
